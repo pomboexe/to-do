@@ -21,7 +21,7 @@ export default function CheckList() {
         overflow: "auto",
       }}
     >
-      <Stack direction={"column"}>
+      <Stack direction={"column"} spacing={1.5}>
         {tasks.map((item) => (
           <Stack
             direction={"row"}

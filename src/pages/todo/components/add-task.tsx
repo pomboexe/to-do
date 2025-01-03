@@ -29,6 +29,17 @@ export default function AddTask() {
             },
           },
         }}
+        sx={{
+          "& .MuiInput-underline:before": {
+            borderBottom: "none",
+          },
+          "& .MuiInput-underline:after": {
+            borderBottom: "none",
+          },
+          "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+            borderBottom: "none",
+          },
+        }}
       />
       <IconButton
         sx={{
