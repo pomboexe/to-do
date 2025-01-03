@@ -5,6 +5,7 @@ import {
   FormGroup,
   IconButton,
   Stack,
+  Typography,
 } from "@mui/material";
 
 const tasks = [
@@ -14,30 +15,46 @@ const tasks = [
 
 export default function CheckList() {
   return (
-    <FormGroup>
-      {tasks.map((item) => (
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-        >
-          <FormControlLabel
-            key={item.id}
-            control={<Checkbox checked={item.completed} />}
-            label={item.name}
-          />
-          <IconButton
-            sx={{
-              color: "rgba(237, 20, 20, 1)",
-              ":hover": {
-                color: "rgba(237, 20, 20, 0.8)",
-              },
-            }}
+    <FormGroup
+      sx={{
+        maxHeight: "50vh",
+        overflow: "auto",
+      }}
+    >
+      <Stack direction={"column"}>
+        {tasks.map((item) => (
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+            width={"100%"}
           >
-            <Delete />
-          </IconButton>
-        </Stack>
-      ))}
+            <FormControlLabel
+              key={item.id}
+              control={<Checkbox checked={item.completed} />}
+              label={
+                <Typography
+                  sx={{
+                    textDecoration: item.completed ? "line-through" : "none",
+                  }}
+                >
+                  {item.name}
+                </Typography>
+              }
+            />
+            <IconButton
+              sx={{
+                color: "rgba(237, 20, 20, 1)",
+                ":hover": {
+                  color: "rgba(237, 20, 20, 0.8)",
+                },
+              }}
+            >
+              <Delete />
+            </IconButton>
+          </Stack>
+        ))}
+      </Stack>
     </FormGroup>
   );
 }

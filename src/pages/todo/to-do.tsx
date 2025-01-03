@@ -15,7 +15,7 @@ export default function ToDo() {
         gap: 3,
       }}
     >
-      <Typography>TO - DO</Typography>
+      <Typography variant="h4">TO - DO</Typography>
       <AddTask />
       <CheckList />
     </Box>
